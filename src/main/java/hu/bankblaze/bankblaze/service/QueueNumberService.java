@@ -27,7 +27,7 @@ public class QueueNumberService {
     }
 
     public QueueNumber getQueueNumber() {
-        return queueNumberRepository.findFirstByOrderByIdAsc();
+        return queueNumberRepository.findFirstByOrderByIdDesc();
     }
 
     public QueueNumber getQueueNumberById(Long id) {
@@ -38,7 +38,7 @@ public class QueueNumberService {
         return queueNumberRepository.findAll();
     }
 
-    public void generateQueueNumber(QueueNumber newQueueNumber) {
+    public void addQueueNumber(QueueNumber newQueueNumber) {
         queueNumberRepository.save(newQueueNumber);
     }
 }
