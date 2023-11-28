@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <title>BankBlaze</title>
     <link rel="stylesheet" href="/styles.css" />
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/SocketConfig.js"></script>
 </head>
 <body>
-<table class="queueCall">
+<button onclick="connect()">Connect</button>
+<!--table class="queueCall">
     <thead>
     <tr>
         <th>Pult</th>
@@ -14,11 +19,23 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="desk : ${desks}">
+    <tr th:each="desk, iStat : ${desks}">
         <td th:text="'0' + ${desk.id}"></td>
-        <td th:text="${desk.queueNumber.getNumber()}"></td>
+        <td th:id="'queueNumber' + ${desk.id}" th:text="${desk.queueNumber.getNumber()}"></td>
     </tr>
     </tbody>
+</table-->
+
+<table class="queueCall">
+    <thead>
+    <tr>
+        <th>Pult</th>
+        <th>Sorszám</th>
+    </tr>
+    </thead>
+    <tbody id="deskTable"></tbody>
 </table>
 </body>
 </html>
+
+// feliratkozni a websocket
